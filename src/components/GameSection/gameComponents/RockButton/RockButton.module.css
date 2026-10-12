@@ -1,0 +1,8 @@
+.RockCircle {
+  height: 230px;
+  width: 230px;
+  border: 30px solid hsl(349, 71%, 52%);
+  background-color: #e8e8e8;
+  -webkit-box-shadow: inset 0px 25px 0px -14px rgba(187, 192, 215, 0.75);
+  box-shadow: inset 0px 25px 0px -14px rgba(187, 192, 215, 0.75);
+}
