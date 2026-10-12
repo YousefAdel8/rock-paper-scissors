@@ -1,0 +1,25 @@
+.ScoreDiv {
+  background-color: white;
+  width: 150px;
+  height: 130px;
+}
+.ScoreText {
+  color: hsl(229, 64%, 46%);
+  margin: 0;
+  padding: 0;
+}
+.ScoreNumber {
+  color: hsl(246, 11%, 37%);
+  font-weight: bolder;
+  font-size: 63px;
+  margin: 0;
+  padding: 0;
+}
+
+.ScoreHeadline {
+  font-weight: bolder;
+  font-size: 40px;
+  margin: 0;
+  padding: 0;
+  line-height: 0.85;
+}
