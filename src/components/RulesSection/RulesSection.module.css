@@ -1,0 +1,20 @@
+.RulesButton{
+    height: 50px;
+    width: 130px;
+    background-color: transparent;
+    color: white;
+}
+
+.RulesText{
+    font-size: 18px;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+.RulesModalHeader{
+    color: hsl(229, 25%, 31%);
+}
+
+.ModalHeader {
+  border-bottom: none !important;
+}
