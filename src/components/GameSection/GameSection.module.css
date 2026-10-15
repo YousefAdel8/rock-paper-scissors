@@ -5,3 +5,8 @@
   flex-direction: column;
   align-items: center;
 }
+
+.Buttons{
+  background-color: transparent;
+  border: 0;
+}
