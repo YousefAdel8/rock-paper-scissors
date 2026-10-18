@@ -116,7 +116,10 @@ export default function GameSection() {
           </div>
           {GameStatus === "result" ? <ResultSection /> : null}
           {PlayingStatus === "placeholder" ? (
-            <PlaceholderButton />
+            <div className="d-flex flex-column justify-content-center align-items-center">
+              <p className={`${Styles.PickText} invisible`}>THE HOUSE PICKED</p>
+              <PlaceholderButton />
+            </div>
           ) : (
             <div className="d-flex flex-column justify-content-center align-items-center">
               <p className={`${Styles.PickText}`}>THE HOUSE PICKED</p>
