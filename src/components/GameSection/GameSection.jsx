@@ -27,12 +27,8 @@ export default function GameSection() {
   /************************************
    ****** computer choice logic *********
    ************************************/
-  const ComputerChoice = useComputerChoiceStore(
-    (state) => state.computerChoice,
-  );
-  const setComputerChoice = useComputerChoiceStore(
-    (state) => state.setComputerChoice,
-  );
+  const ComputerChoice = useComputerChoiceStore((state) => state.computerChoice);
+  const setComputerChoice = useComputerChoiceStore((state) => state.setComputerChoice);
   /********************************************************
    ****** game Status (playing,result,ready) logic ********
    ********************************************************/

@@ -1,16 +1,26 @@
+import useComputerChoiceStore from "../../../../store/computerChoice";
 import useGameStore from "../../../../store/gameState";
+import usePlayerChoiceStore from "../../../../store/playerChoice";
 import usePlayStore from "../../../../store/playingState";
+import { getWhoWin } from "../../../../utils/gameLogic";
 import Styles from "./ResultSection.module.css";
 
 export default function ResultSection() {
+    //Reset Game State to ready and Playing State to placeholder
     const setPlayAgain = useGameStore((state) => state.playAgain);
     const setPlaceholder = usePlayStore((state) => state.showPlaceholder);
     function PlayAgianAndResetStats() {
         setPlayAgain();
         setPlaceholder();
     }
-  return <div className="d-flex flex-column">
-    <h2 className={`${Styles.resultText}`}>YOU WIN</h2>
+
+    //Get Who Win to Set <h2> --> YOU WIN or YOU LOSS or DRAW
+    const playerChoice = usePlayerChoiceStore((state) => state.playerChoice);
+    const computerChoice = useComputerChoiceStore((state) => state.computerChoice);
+    const result = getWhoWin(playerChoice, computerChoice);
+
+  return <div className="d-flex flex-column justify-content-center align-items-center">
+    <h2 className={`${Styles.resultText}`}>{result}</h2>
     <button className={`rounded px-5 py-2 ${Styles.buttonText}`} onClick={PlayAgianAndResetStats}>PLAY AGAIN</button>
   </div>;
 }
