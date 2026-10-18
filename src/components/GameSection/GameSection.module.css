@@ -10,3 +10,9 @@
   background-color: transparent;
   border: 0;
 }
+
+.PickText{
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}

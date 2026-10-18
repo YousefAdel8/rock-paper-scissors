@@ -38,7 +38,7 @@ export default function GameSection() {
    ********************************************************/
   const GameStatus = useGameStore((state) => state.gameStatus);
   const setStartGame = useGameStore((state) => state.startGame);
-  const setshowResult = useGameStore((state) => state.showResult);
+  const setShowResult = useGameStore((state) => state.showResult);
 
   /********************************************************
    ****************** onClick For Buttons *****************
@@ -69,7 +69,7 @@ export default function GameSection() {
     setTimeout(() => {
       setRevealing();
       setTimeout(() => {
-        setshowResult();    
+        setShowResult();
       }, 1000);
     }, 2000);
   }
@@ -101,34 +101,36 @@ export default function GameSection() {
             <ScissorsButton />
           </button>
         </div>
-      ) : ( 
+      ) : (
         <div className="d-flex justify-content-center gap-5 align-items-center pt-5 px-4">
-          <button className={`${Styles.Buttons}`} type="button">
-            {PlayerChoice &&
-              (() => {
-                const SelectedButton = choiceButtons[PlayerChoice];
-
-                return SelectedButton ? <SelectedButton /> : null;
-              })()}
-          </button>
-          {GameStatus === "result" ? (
-            <ResultSection/>
-          ): null
-          }
-          {PlayingStatus === "placeholder" ? (
-            <PlaceholderButton />
-          ) : (
+          <div className="d-flex flex-column justify-content-center align-items-center">
+            <p className={`${Styles.PickText}`}>YOU PICKED</p>
             <button className={`${Styles.Buttons}`} type="button">
-              {ComputerChoice &&
+              {PlayerChoice &&
                 (() => {
-                  const SelectedButton = choiceButtons[ComputerChoice];
+                  const SelectedButton = choiceButtons[PlayerChoice];
 
                   return SelectedButton ? <SelectedButton /> : null;
                 })()}
             </button>
+          </div>
+          {GameStatus === "result" ? <ResultSection /> : null}
+          {PlayingStatus === "placeholder" ? (
+            <PlaceholderButton />
+          ) : (
+            <div className="d-flex flex-column justify-content-center align-items-center">
+              <p className={`${Styles.PickText}`}>THE HOUSE PICKED</p>
+              <button className={`${Styles.Buttons}`} type="button">
+                {ComputerChoice &&
+                  (() => {
+                    const SelectedButton = choiceButtons[ComputerChoice];
+
+                    return SelectedButton ? <SelectedButton /> : null;
+                  })()}
+              </button>
+            </div>
           )}
         </div>
-        
       )}
     </>
   );
