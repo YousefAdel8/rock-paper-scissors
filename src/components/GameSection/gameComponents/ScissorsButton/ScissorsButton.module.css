@@ -6,3 +6,19 @@
   -webkit-box-shadow: inset 0px 25px 0px -14px rgba(187, 192, 215, 0.75);
   box-shadow: inset 0px 25px 0px -14px rgba(187, 192, 215, 0.75);
 }
+.icon {
+  width: 90px;
+  height: 90px;
+}
+
+@media screen and (max-width: 600px) {
+  .ScissorsCircle {
+  height: 120px;
+  width: 120px;
+  border: 15px solid hsl(39, 89%, 49%);
+}
+  .icon {
+    width: 60px;
+    height: 60px;
+  }
+}

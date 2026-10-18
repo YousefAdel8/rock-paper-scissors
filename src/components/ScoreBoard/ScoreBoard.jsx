@@ -5,12 +5,11 @@ export default function ScoreBoard() {
   const Score = useScoreResultStore((state) => state.scoreResult);
   return (
     <>
-      <div className="d-flex justify-content-between w-50 border border-white rounded-4 p-4">
-        <svg
+      <div className={`d-flex justify-content-between border border-white rounded-4 p-4 ${Styles.ScoreBoard}`}>
+        <svg    
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 165 102"
-          width="180"
-          height="130"
+          className={`${Styles.Icon}`}
         >
           <defs>
             <filter
@@ -42,11 +41,6 @@ export default function ScoreBoard() {
             <use fill="#FFF" href="#scoreText" />
           </g>
         </svg>
-        {/* <div className="d-flex flex-column justify-content-center align-items-start">
-                <h3 className={`${Styles.ScoreHeadline}`}>ROCK</h3>
-                <h3 className={`${Styles.ScoreHeadline}`}>PAPER</h3>
-                <h3 className={`${Styles.ScoreHeadline}`}>SCISSORS</h3>
-            </div> */}
         <div>
           <div className={`${Styles.ScoreDiv} rounded`}>
             <div className="d-flex flex-column align-items-center">

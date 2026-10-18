@@ -1,3 +1,6 @@
+.ScoreBoard{
+  width: 50%;
+}
 .ScoreDiv {
   background-color: white;
   width: 150px;
@@ -16,10 +19,23 @@
   padding: 0;
 }
 
-.ScoreHeadline {
-  font-weight: bolder;
-  font-size: 40px;
-  margin: 0;
-  padding: 0;
-  line-height: 0.85;
+.Icon{
+  width:180px;
+  height:130px;
+}
+@media screen and (max-width: 480px) {
+  .ScoreBoard{
+   width: 85%;
+  }
+  .ScoreDiv {
+    width: 80px;
+    height: 110px;
+}
+.Icon{
+  width:140px;
+  height:100px;
+}
+.ScoreNumber{
+  font-size: 50px;
+}
 }
