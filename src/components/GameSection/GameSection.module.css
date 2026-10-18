@@ -16,3 +16,17 @@
   font-weight: 600;
   letter-spacing: 3px;
 }
+
+.ActiveButtons{
+  transition: transform 0.3s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ActiveButtons:hover, .ActiveButtons:focus-visible {
+    transform: scale(1.05) translateY(-5px);
+  }
+}
+
+.ActiveButtons:active{
+  transform: scale(0.95);
+}

@@ -2,4 +2,27 @@
   height: 200px;
   width: 200px;
   background-color: #17223e;
+  	-webkit-animation: scale-up-center 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate-reverse ;
+    animation: scale-up-center 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate-reverse ;
+}
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }

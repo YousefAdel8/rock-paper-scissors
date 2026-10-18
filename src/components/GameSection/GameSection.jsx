@@ -92,18 +92,19 @@ export default function GameSection() {
 
   return (
     <>
+    {/* Ready State --> Step 1 in game --> show options to user to select rock or paper or scissors */}
       {GameStatus === "ready" ? (
         <div className={`${Styles.board}`}>
           <div className="d-flex gap-5">
             <button
-              className={`${Styles.Buttons}`}
+              className={`${Styles.Buttons} ${Styles.ActiveButtons}`}
               type="button"
               onClick={PlayingWithPaper}
             >
               <PaperButton />
             </button>
             <button
-              className={`${Styles.Buttons}`}
+              className={`${Styles.Buttons} ${Styles.ActiveButtons}`}
               type="button"
               onClick={PlayingWithRock}
             >
@@ -111,7 +112,7 @@ export default function GameSection() {
             </button>
           </div>
           <button
-            className={`${Styles.Buttons}`}
+            className={`${Styles.Buttons} ${Styles.ActiveButtons}`}
             type="button"
             onClick={PlayingWithScissors}
           >
@@ -120,6 +121,7 @@ export default function GameSection() {
         </div>
       ) : (
         <div className="d-flex justify-content-center gap-5 align-items-center pt-5 px-4">
+          {/* Show the Result (2 steps first one to show placeholder for 2s then show computer choice) */}
           <div className="d-flex flex-column justify-content-center align-items-center">
             <p className={`${Styles.PickText}`}>YOU PICKED</p>
             <button className={`${Styles.Buttons}`} type="button" disabled>
