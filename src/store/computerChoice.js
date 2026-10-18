@@ -1,9 +1,8 @@
 import { create } from 'zustand'
+import { getComputerChoice } from '../utils/gameLogic';
 
 const useComputerChoiceStore = create((set) => ({
-  ComputerChoice: '',
-  setRock:      () => set({ComputerChoice: "Rock" }),
-  setPaper:     () => set({ComputerChoice: "Paper"}),
-  setScissors:  () => set({ComputerChoice: "Scissors"}),
+  computerChoice: '',
+  setComputerChoice:      () => set({computerChoice: getComputerChoice() }),
 }))
 export default useComputerChoiceStore;

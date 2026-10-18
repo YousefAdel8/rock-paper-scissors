@@ -5,7 +5,8 @@ const choices = ["Rock", "Paper", "Scissors"];
     we need (0...2) so we will multiply the Math.random() * 3 
     and get the floor of num
 */
-function getComputerChoice() {
-    const randomIndex = Math.random(); 
-    return choices[randomIndex];
+export function getComputerChoice() {
+    const randomIndex = Math.random()*3; 
+    const Index =Math.floor(randomIndex) 
+    return choices[Index];
 }

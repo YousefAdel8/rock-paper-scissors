@@ -1,0 +1,10 @@
+.resultText{
+    font-size: 60px;
+    font-weight: bold;
+}
+.buttonText{
+    font-size: 18px;
+    font-weight: 500;
+    color: hsl(246, 11%, 37%);
+    border: 0;
+}
