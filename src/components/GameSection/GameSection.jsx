@@ -122,7 +122,7 @@ export default function GameSection() {
         <div className="d-flex justify-content-center gap-5 align-items-center pt-5 px-4">
           <div className="d-flex flex-column justify-content-center align-items-center">
             <p className={`${Styles.PickText}`}>YOU PICKED</p>
-            <button className={`${Styles.Buttons}`} type="button">
+            <button className={`${Styles.Buttons}`} type="button" disabled>
               {PlayerChoice &&
                 (() => {
                   const SelectedButton = choiceButtons[PlayerChoice];
@@ -135,12 +135,12 @@ export default function GameSection() {
           {PlayingStatus === "placeholder" ? (
             <div className="d-flex flex-column justify-content-center align-items-center">
               <p className={`${Styles.PickText} invisible`}>THE HOUSE PICKED</p>
-              <PlaceholderButton />
+              <PlaceholderButton  disabled/>
             </div>
           ) : (
             <div className="d-flex flex-column justify-content-center align-items-center">
               <p className={`${Styles.PickText}`}>THE HOUSE PICKED</p>
-              <button className={`${Styles.Buttons}`} type="button">
+              <button className={`${Styles.Buttons}`} type="button" disabled>
                 {ComputerChoice &&
                   (() => {
                     const SelectedButton = choiceButtons[ComputerChoice];
