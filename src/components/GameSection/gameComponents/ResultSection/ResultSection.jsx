@@ -9,7 +9,7 @@ export default function ResultSection() {
     //Reset Game State to ready and Playing State to placeholder
     const setPlayAgain = useGameStore((state) => state.playAgain);
     const setPlaceholder = usePlayStore((state) => state.showPlaceholder);
-    function PlayAgianAndResetStats() {
+    function playAgainAndResetStats() {
         setPlayAgain();
         setPlaceholder();
     }
@@ -21,6 +21,6 @@ export default function ResultSection() {
 
   return <div className="d-flex flex-column justify-content-center align-items-center">
     <h2 className={`${Styles.resultText}`}>{result}</h2>
-    <button className={`rounded px-5 py-2 ${Styles.buttonText}`} onClick={PlayAgianAndResetStats}>PLAY AGAIN</button>
+    <button className={`rounded px-5 py-2 ${Styles.buttonText}`} onClick={playAgainAndResetStats}>PLAY AGAIN</button>
   </div>;
 }

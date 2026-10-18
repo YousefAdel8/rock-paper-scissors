@@ -8,6 +8,8 @@ import PlaceholderButton from "./gameComponents/PlaceholderButton/PlaceholderBut
 import useComputerChoiceStore from "../../store/computerChoice";
 import usePlayStore from "../../store/playingState";
 import ResultSection from "./gameComponents/ResultSection/ResultSection";
+import useScoreResultStore from "../../store/ScoreResult";
+import { getWhoWin } from "../../utils/gameLogic";
 
 const choiceButtons = {
   Paper: PaperButton,
@@ -60,15 +62,34 @@ export default function GameSection() {
    ********************************************************/
   const PlayingStatus = usePlayStore((state) => state.playStatus);
   const setRevealing = usePlayStore((state) => state.showComputerChoice);
+  const setWin = useScoreResultStore((state) => state.setWin);
+  const setLoss = useScoreResultStore((state) => state.setLoss);
+  const setDraw = useScoreResultStore((state) => state.setDraw);
   function RevealingComputerChoice() {
     setComputerChoice();
     setTimeout(() => {
       setRevealing();
       setTimeout(() => {
+              const playerChoice =
+        usePlayerChoiceStore.getState().playerChoice;
+
+      const computerChoice =
+        useComputerChoiceStore.getState().computerChoice;
+
+      const result = getWhoWin(playerChoice, computerChoice);
+
+      if (result === "YOU WIN") {
+        setWin();
+      } else if (result === "YOU LOSS") {
+        setLoss();
+      } else {
+        setDraw();
+      }
         setShowResult();
       }, 1000);
     }, 2000);
   }
+
   return (
     <>
       {GameStatus === "ready" ? (

@@ -10,7 +10,6 @@ export function getComputerChoice() {
     const Index =Math.floor(randomIndex) 
     return choices[Index];
 }
-
 export function getWhoWin(PlayerChoice,ComputerChoice)
 {
     if(PlayerChoice===ComputerChoice)

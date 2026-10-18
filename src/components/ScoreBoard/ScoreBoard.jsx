@@ -1,8 +1,8 @@
-import { useState } from "react";
 import Styles from "./ScoreBoard.module.css";
+import useScoreResultStore from "../../store/ScoreResult";
 
 export default function ScoreBoard() {
-  const [score, setScore] = useState(12);
+  const Score = useScoreResultStore((state) => state.scoreResult);
   return (
     <>
       <div className="d-flex justify-content-between w-50 border border-white rounded-4 p-4">
@@ -51,7 +51,7 @@ export default function ScoreBoard() {
           <div className={`${Styles.ScoreDiv} rounded`}>
             <div className="d-flex flex-column align-items-center">
               <h5 className={`${Styles.ScoreText} pt-3`}>SCORE</h5>
-              <h5 className={`${Styles.ScoreNumber}`}>{score}</h5>
+              <h5 className={`${Styles.ScoreNumber}`}>{Score}</h5>
             </div>
           </div>
         </div>
