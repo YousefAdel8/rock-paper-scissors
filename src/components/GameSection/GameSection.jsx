@@ -4,6 +4,7 @@ import ScissorsButton from "./gameComponents/ScissorsButton/ScissorsButton";
 import Styles from "./GameSection.module.css";
 import usePlayerChoiceStore from "../../store/playerChoice";
 import useGameStore from "../../store/gameState";
+import PlaceholderButton from "./gameComponents/PlaceholderButton/PlaceholderButton";
 
 const choiceButtons = {
   Paper: PaperButton,
@@ -52,9 +53,8 @@ export default function GameSection() {
           <button
             className={`${Styles.Buttons}`}
             type="button"
-            onClick={PlayingWithRock}
           >
-            <RockButton />
+            <PlaceholderButton/>
           </button>
         </div>
       ) : (
