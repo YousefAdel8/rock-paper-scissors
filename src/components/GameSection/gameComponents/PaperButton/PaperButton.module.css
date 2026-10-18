@@ -14,10 +14,10 @@
 
 @media screen and (max-width: 600px) {
   .PaperCircle {
-  height: 120px;
-  width: 120px;
-  border: 15px solid hsl(230, 89%, 62%);
-}
+    height: 120px;
+    width: 120px;
+    border: 15px solid hsl(230, 89%, 62%);
+  }
   .icon {
     width: 50px;
     height: 50px;

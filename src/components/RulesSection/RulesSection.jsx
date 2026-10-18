@@ -9,7 +9,7 @@ export default function RulesSection() {
         data-bs-toggle="modal"
         data-bs-target="#exampleModalCenter"
       >
-        <p className={`${Styles.RulesText} m-0 p-0`}>RULES</p>
+        <p className={`${Styles.RulesText} m-0 p-0 ps-1 ps-md-0`}>RULES</p>
       </button>
 
       <div

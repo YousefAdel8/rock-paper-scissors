@@ -8,3 +8,13 @@
     color: hsl(246, 11%, 37%);
     border: 0;
 }
+
+@media screen and (max-width: 600px) {
+.resultText{
+ font-size: 30px;
+ text-align: center;
+}
+.buttonText{
+    font-size: 12px;
+}
+}

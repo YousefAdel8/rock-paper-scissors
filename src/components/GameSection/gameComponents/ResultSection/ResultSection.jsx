@@ -21,6 +21,6 @@ export default function ResultSection() {
 
   return <div className="d-flex flex-column justify-content-center align-items-center">
     <h2 className={`${Styles.resultText}`}>{result}</h2>
-    <button className={`rounded px-5 py-2 ${Styles.buttonText}`} onClick={playAgainAndResetStats}>PLAY AGAIN</button>
+    <button className={`rounded px-md-5 px-3 py-2 ${Styles.buttonText}`} onClick={playAgainAndResetStats}>PLAY AGAIN</button>
   </div>;
 }

@@ -18,3 +18,14 @@
 .ModalHeader {
   border-bottom: none !important;
 }
+
+
+@media screen and (max-width: 600px) {
+.RulesButton{
+    height: 40px;
+    width: 70px;
+}
+.RulesText{
+    font-size: 12px;
+}
+}

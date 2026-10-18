@@ -120,7 +120,7 @@ export default function GameSection() {
           </button>
         </div>
       ) : (
-        <div className="d-flex justify-content-center gap-5 align-items-center pt-5 px-4">
+        <div className="d-flex justify-content-center gap-md-5 gap-3 align-items-center pt-5 px-md-4">
           {/* Show the Result (2 steps first one to show placeholder for 2s then show computer choice) */}
           <div className="d-flex flex-column justify-content-center align-items-center">
             <p className={`${Styles.PickText}`}>YOU PICKED</p>
