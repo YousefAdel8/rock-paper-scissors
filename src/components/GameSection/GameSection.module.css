@@ -61,7 +61,7 @@
 .winner::before {
   content: "";
   position: absolute;
-  inset: -20%; /* ring is 160% of the button's size (100%+65%+65%) */  
+  inset: -20%; /* ring is 140% of the button's size (100%+20%+20%) */  
   border-radius: 50%;
   z-index: -1;
   pointer-events: none;
