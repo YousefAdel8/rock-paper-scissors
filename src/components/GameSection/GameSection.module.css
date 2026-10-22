@@ -19,18 +19,32 @@
   letter-spacing: 3px;
 }
 
-.ActiveButtons{
-  transition: transform 0.3s ease;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .ActiveButtons:hover, .ActiveButtons:focus-visible {
     transform: scale(1.05) translateY(-5px);
   }
+  .ActiveButtons{
+    transition: transform 0.3s ease;
+  }
+  .ActiveButtons:active{
+    transform: scale(0.95);
+  }
 }
+/*
+  *from Frontend Mentor Comments*
+  Provide alternatives for users who prefer reduced motion to prevent motion sickness and other accessibility issues. 
+ */
+@media (prefers-reduced-motion: reduce) {
+  .ActiveButtons {
+    transition: none;
+  }
 
-.ActiveButtons:active{
-  transform: scale(0.95);
+  .ActiveButtons:hover,
+  .ActiveButtons:focus-visible,
+  .ActiveButtons:active {
+    transform: none;
+  }
 }
 
 .winner {
