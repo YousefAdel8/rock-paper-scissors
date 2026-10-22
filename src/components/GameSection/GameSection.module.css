@@ -9,25 +9,25 @@
 .Buttons {
   background-color: transparent;
   border: 0;
-    position: relative;
+  position: relative;
   z-index: 1;
 }
 
-.PickText{
-  font-size: 25px;
+.PickText {
+  font-size: 1.5625rem; /*25px*/
   font-weight: 600;
-  letter-spacing: 3px;
+  letter-spacing: 0.1875rem; /*3px*/
 }
 
-
 @media (prefers-reduced-motion: no-preference) {
-  .ActiveButtons:hover, .ActiveButtons:focus-visible {
+  .ActiveButtons:hover,
+  .ActiveButtons:focus-visible {
     transform: scale(1.05) translateY(-5px);
   }
-  .ActiveButtons{
+  .ActiveButtons {
     transition: transform 0.3s ease;
   }
-  .ActiveButtons:active{
+  .ActiveButtons:active {
     transform: scale(0.95);
   }
 }
@@ -55,7 +55,7 @@
 .winner::before {
   content: "";
   position: absolute;
-  inset: -60%; /* ring is 230% of the button's size (100%+65%+65%) */  
+  inset: -60%; /* ring is 230% of the button's size (100%+65%+65%) */
   border-radius: 50%;
   z-index: -1;
   pointer-events: none;
@@ -66,32 +66,35 @@
     rgb(255 255 255 / 3%) 75%
   );
 }
-
-@media screen and (max-width: 600px) {
-.PickText{
- font-size: 15px;
- text-align: center;
-}
-.winner::before {
-  content: "";
-  position: absolute;
-  inset: -20%; /* ring is 140% of the button's size (100%+20%+20%) */  
-  border-radius: 50%;
-  z-index: -1;
-  pointer-events: none;
-  background: radial-gradient(
-    closest-side,
-    rgb(255 255 255 / 7%) 57%,
-    rgb(255 255 255 / 5%) 57% 75%,
-    rgb(255 255 255 / 3%) 75%
-  );
-}
+/*max-width: 37.5em --> 600px */
+@media screen and (max-width: 37.5em) {
+  .PickText {
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.8125rem; /* 13px */
+    letter-spacing: 0.125rem; /* 2px */
+  }
+  .winner::before {
+    content: "";
+    position: absolute;
+    inset: -20%; /* ring is 140% of the button's size (100%+20%+20%) */
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(
+      closest-side,
+      rgb(255 255 255 / 7%) 57%,
+      rgb(255 255 255 / 5%) 57% 75%,
+      rgb(255 255 255 / 3%) 75%
+    );
+  }
 
   .resultLayout {
     display: grid !important;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem 1rem !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 2rem 1rem;
     align-items: start !important;
+    width: 100%;
   }
 
   /* YOU PICKED */
@@ -111,5 +114,4 @@
     grid-column: 2;
     grid-row: 1;
   }
-
 }

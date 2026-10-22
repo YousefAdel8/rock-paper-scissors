@@ -1,6 +1,6 @@
 .PlaceholderCircle {
-  height: 200px;
-  width: 200px;
+  height: 12.5rem;/*200px*/
+  width: 12.5rem;
   background-color: #17223e;
   -webkit-animation: scale-up-center 0.7s cubic-bezier(0.39, 0.575, 0.565, 1)
     infinite alternate-reverse;
@@ -29,9 +29,9 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 37.5em) {
   .PlaceholderCircle {
-    height: 100px;
-    width: 100px;
+    height: 6.25rem; /*100px*/
+    width: 6.25rem;
   }
 }

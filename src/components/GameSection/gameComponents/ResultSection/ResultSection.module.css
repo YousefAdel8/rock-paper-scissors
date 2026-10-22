@@ -1,22 +1,25 @@
-.resultText{
-    font-size: 60px;
-    font-weight: bold;
-}
-.buttonText{
-    font-size: 18px;
-    font-weight: 500;
-    color: hsl(246, 11%, 37%);
-    border: 0;
+.resultText {
+  font-size: 3.75rem; /* 60px */
+  font-weight: bold;
 }
 
-@media screen and (max-width: 600px) {
-.resultText{
-padding-top: 5px;
- font-size: 40px;
- text-align: center;
+.buttonText {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 500;
+  color: hsl(246, 11%, 37%);
+  border: 0;
 }
-.buttonText{
-    font-size: 14px;
+
+@media screen and (max-width: 37.5rem) {
+  /* 600px */
+  .resultText {
+    padding-top: 0.3125rem; /* 5px */
+    font-size: 2.5rem; /* 40px */
+    text-align: center;
+  }
+
+  .buttonText {
+    font-size: 0.875rem; /* 14px */
     width: 75%;
-}
+  }
 }
