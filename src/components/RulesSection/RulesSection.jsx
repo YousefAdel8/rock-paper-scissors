@@ -10,7 +10,7 @@ export default function RulesSection() {
         data-bs-target="#exampleModalCenter"
         aria-label="rules"
       >
-        <p className={`${Styles.RulesText} m-0 p-0 ps-1 ps-md-0`}>RULES</p>
+        <span className={`${Styles.RulesText} ps-1 ps-md-0`}>RULES</span>
       </button>
 
       <div
