@@ -6,7 +6,8 @@ import Styles from "./MainSection.module.css";
 export default function MainSection() {
   return (
     <>
-      <section className={`${Styles.MainSection} min-vh-100 text-white pt-5`}>
+      <main  className={`${Styles.MainSection} min-vh-100 text-white pt-5`}>
+        <h1 className="visually-hidden">Rock Paper Scissors</h1>
         <div className="d-flex flex-column align-items-center gap-5">
           <ScoreBoard />
           <GameSection />
@@ -14,7 +15,7 @@ export default function MainSection() {
         <div className="position-absolute bottom-0 end-0 p-3 mb-0">
           <RulesSection/>
         </div>
-      </section>
+      </main>
     </>
   );
 }
