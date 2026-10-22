@@ -113,6 +113,7 @@ export default function GameSection() {
               className={`${Styles.Buttons} ${Styles.ActiveButtons}`}
               type="button"
               onClick={PlayingWithPaper}
+              aria-label="Choose paper"
             >
               <PaperButton />
             </button>
@@ -120,7 +121,8 @@ export default function GameSection() {
               className={`${Styles.Buttons} ${Styles.ActiveButtons}`}
               type="button"
               onClick={PlayingWithRock}
-            >
+              aria-label="Choose rock"
+              >
               <RockButton />
             </button>
           </div>
@@ -128,6 +130,7 @@ export default function GameSection() {
             className={`${Styles.Buttons} ${Styles.ActiveButtons}`}
             type="button"
             onClick={PlayingWithScissors}
+            aria-label="Choose scissors"
           >
             <ScissorsButton />
           </button>
@@ -149,6 +152,7 @@ export default function GameSection() {
               }`}
               type="button"
               disabled
+              aria-label="user picked"
             >
               {PlayerChoice &&
                 (() => {
@@ -175,6 +179,7 @@ export default function GameSection() {
                 }`}
                 type="button"
                 disabled  
+                aria-label="computer picked"
               >
                 {ComputerChoice &&
                   (() => {
