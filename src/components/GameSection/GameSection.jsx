@@ -10,6 +10,7 @@ import usePlayStore from "../../store/playingState";
 import ResultSection from "./gameComponents/ResultSection/ResultSection";
 import useScoreResultStore from "../../store/ScoreResult";
 import { getWhoWin } from "../../utils/gameLogic";
+import useRoundResultStore from "../../store/roundResult";
 
 const choiceButtons = {
   Paper: PaperButton,
@@ -29,8 +30,12 @@ export default function GameSection() {
   /************************************
    ****** computer choice logic *********
    ************************************/
-  const ComputerChoice = useComputerChoiceStore((state) => state.computerChoice);
-  const setComputerChoice = useComputerChoiceStore((state) => state.setComputerChoice);
+  const ComputerChoice = useComputerChoiceStore(
+    (state) => state.computerChoice,
+  );
+  const setComputerChoice = useComputerChoiceStore(
+    (state) => state.setComputerChoice,
+  );
   /********************************************************
    ****** game Status (playing,result,ready) logic ********
    ********************************************************/
@@ -62,37 +67,45 @@ export default function GameSection() {
    ********************************************************/
   const PlayingStatus = usePlayStore((state) => state.playStatus);
   const setRevealing = usePlayStore((state) => state.showComputerChoice);
-  const setWin = useScoreResultStore((state) => state.setWin);
-  const setLoss = useScoreResultStore((state) => state.setLoss);
-  const setDraw = useScoreResultStore((state) => state.setDraw);
+  const increaseScore = useScoreResultStore((state) => state.setWin);
+  const decreaseScore = useScoreResultStore((state) => state.setLoss);
+
+  const setRoundWin = useRoundResultStore((state) => state.setWin);
+  const setRoundLoss = useRoundResultStore((state) => state.setLoss);
+  const setRoundDraw = useRoundResultStore((state) => state.setDraw);
   function RevealingComputerChoice() {
     setComputerChoice();
     setTimeout(() => {
       setRevealing();
       setTimeout(() => {
-              const playerChoice =
-        usePlayerChoiceStore.getState().playerChoice;
+        const playerChoice = usePlayerChoiceStore.getState().playerChoice;
 
-      const computerChoice =
-        useComputerChoiceStore.getState().computerChoice;
+        const computerChoice = useComputerChoiceStore.getState().computerChoice;
 
-      const result = getWhoWin(playerChoice, computerChoice);
+        const result = getWhoWin(playerChoice, computerChoice);
 
-      if (result === "YOU WIN") {
-        setWin();
-      } else if (result === "YOU LOSS") {
-        setLoss();
-      } else {
-        setDraw();
-      }
+        if (result === "YOU WIN") {
+          increaseScore();
+          setRoundWin();
+        } else if (result === "YOU LOSS") {
+          decreaseScore();
+          setRoundLoss();
+        } else {
+          setRoundDraw();
+        }
         setShowResult();
       }, 1000);
     }, 2000);
   }
 
+  /********************************************************
+   *** Round Result To give class Winner to the winner ****
+   ********************************************************/
+  const RoundResult = useRoundResultStore((state) => state.roundResult);
+
   return (
     <>
-    {/* Ready State --> Step 1 in game --> show options to user to select rock or paper or scissors */}
+      {/* Ready State --> Step 1 in game --> show options to user to select rock or paper or scissors */}
       {GameStatus === "ready" ? (
         <div className={`${Styles.board}`}>
           <div className="d-flex gap-5">
@@ -120,11 +133,23 @@ export default function GameSection() {
           </button>
         </div>
       ) : (
-        <div className="d-flex justify-content-center gap-md-5 gap-3 align-items-center pt-5 px-md-4">
+        <div
+          className={`d-flex justify-content-center gap-md-5 gap-3 align-items-center pt-5 px-md-4 ${
+            GameStatus === "result" ? Styles.resultLayout : ""
+          }`}
+        >
           {/* Show the Result (2 steps first one to show placeholder for 2s then show computer choice) */}
           <div className="d-flex flex-column justify-content-center align-items-center">
             <p className={`${Styles.PickText}`}>YOU PICKED</p>
-            <button className={`${Styles.Buttons}`} type="button" disabled>
+            <button
+              className={`${Styles.Buttons} ${
+                GameStatus === "result" && RoundResult === "Win"
+                  ? Styles.winner
+                  : ""
+              }`}
+              type="button"
+              disabled
+            >
               {PlayerChoice &&
                 (() => {
                   const SelectedButton = choiceButtons[PlayerChoice];
@@ -137,12 +162,20 @@ export default function GameSection() {
           {PlayingStatus === "placeholder" ? (
             <div className="d-flex flex-column justify-content-center align-items-center">
               <p className={`${Styles.PickText} invisible`}>THE HOUSE PICKED</p>
-              <PlaceholderButton  disabled/>
+              <PlaceholderButton disabled />
             </div>
           ) : (
             <div className="d-flex flex-column justify-content-center align-items-center">
               <p className={`${Styles.PickText}`}>THE HOUSE PICKED</p>
-              <button className={`${Styles.Buttons}`} type="button" disabled>
+              <button
+                className={`${Styles.Buttons} ${
+                  GameStatus === "result" && RoundResult === "Loss"
+                    ? Styles.winner
+                    : ""
+                }`}
+                type="button"
+                disabled  
+              >
                 {ComputerChoice &&
                   (() => {
                     const SelectedButton = choiceButtons[ComputerChoice];
